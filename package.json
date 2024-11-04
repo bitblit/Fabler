@@ -38,7 +38,7 @@
     "clean-build": "yarn run clean && yarn run generate-barrels && yarn run build ",
     "build": "tsc && yarn run copy-static-files",
     "copy-static-files": "cd src && shx cp -R static ../lib",
-    "remove-compiled-tests": "rimraf ./lib/**/*.spec.d.ts && rimraf ./lib/**/*.spec.js && rimraf ./lib/**/*.spec.js.map",
+    "remove-compiled-tests": "shx rm -Rf ./lib/**/*.spec.d.ts && shx rm -Rf ./lib/**/*.spec.js && shx rm -Rf ./lib/**/*.spec.js.map",
     "clean": "shx rm -Rf lib bundles temp dist",
     "build-test": "yarn build && yarn test",
     "test": "vitest run",
