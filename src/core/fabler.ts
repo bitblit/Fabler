@@ -92,7 +92,7 @@ export class Fabler {
 
 
     public async genPrint(text): Promise<void> {
-        let x = this.get(16);
+        const x = this.get(16);
         if (x != this.savedFlags) {
             this.savedFlags = x;
             if (this.opts.highlight) {
@@ -315,7 +315,7 @@ export class Fabler {
             store(x);
         };
         store = (y) => {
-            let x = pcgetb();
+            const x = pcgetb();
             if (x == 0) ds.push(y);
             else if (x < 16) cs[0].local[x - 1] = y;
             else this.put(globals + 2 * x, y);
@@ -341,7 +341,7 @@ export class Fabler {
         }
 
         // Main loop
-        main: for (; ;) {
+        for (; ;) {
             inst = pcgetb();
             if (inst < 128) {
                 // 2OP
@@ -644,7 +644,7 @@ export class Fabler {
     };
 
     public verify() {
-        let plenth = this.getu(26);
+        const plenth = this.getu(26);
         let pchksm = this.getu(28);
         let i = 64;
         while (i < plenth * 2) pchksm = (pchksm - this.memInit[i++]) & 65535;

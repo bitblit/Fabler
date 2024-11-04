@@ -11,7 +11,7 @@ export class InputModifyingUserAdapter implements FablerUserAdapter {
   };
 
   public async read(maxlen:number):Promise<string> {
-    let input: string = await this.delegate.read(maxlen);
+    const input: string = await this.delegate.read(maxlen);
     const rval: string = await this.modifier.modifyInput(input);
     return rval;
   };

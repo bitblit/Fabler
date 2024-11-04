@@ -61,7 +61,7 @@ export class NodeCliFablerUserAdapter implements FablerUserAdapter {
   public async save(buffer: Uint8Array): Promise<boolean> {
     process.stdout.write('Save?');
     const name: string = await this.question('');
-    if (!!name) {
+    if (name) {
       const fs: any = await this.fs();
       fs.writeFileSync(name, buffer);
       return true;
@@ -73,7 +73,7 @@ export class NodeCliFablerUserAdapter implements FablerUserAdapter {
   public async restore(): Promise<Uint8Array> {
     process.stdout.write('Restore?');
     const name: string = await this.question('');
-    if (!!name) {
+    if (name) {
       const fs: any = await this.fs();
       const buf: Buffer = fs.readFileSync(name);
       return buf;

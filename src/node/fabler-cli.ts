@@ -1,7 +1,7 @@
 import { Fabler } from '../core/fabler.js'; // version 2
 import { NodeCliFablerUserAdapter } from './node-cli-fabler-user-adapter.js'; // version 2
 
-if (!!process) {
+if (process) {
   async function runGame(): Promise<any> {
     const fs = await import(/* webpackIgnore: true*/ 'fs');
     if (!process || !process.argv || process.argv.length < 3) {
@@ -14,7 +14,7 @@ if (!!process) {
         console.log(game.describeFile());
 
         let next: any = await game.run();
-        while (!!next) {
+        while (next) {
           next = await game.run();
         }
 
