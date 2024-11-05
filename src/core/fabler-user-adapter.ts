@@ -54,7 +54,7 @@ export interface FablerUserAdapter {
   print(text:string,scripting:boolean) :Promise<void>;
   read(maxlen:number):Promise<string>;
   save(buffer: Uint8Array):Promise<boolean>;
-  restarted():Promise<undefined>;
+  restarted():Promise<void>;
   restore():Promise<Uint8Array>;
   highlight?(fixpitch: boolean):Promise<void>;
   screen?(window:number):Promise<any>;

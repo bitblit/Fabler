@@ -45,7 +45,7 @@
     "apply-ci-vars": "yarn ratchet-cli apply-ci-env-variables-to-files github src/core/fabler-build-properties.ts",
     "lint": "eslint src/**/*.ts",
     "lint-fix": "eslint --fix src/**/*.ts",
-    "generate-barrels": "barrelsby --delete -d src -q -e .*\\.spec\\.ts -e example\\.ts && fix-esm-import-path src",
+    "generate-barrels": "barrelsby --delete -d src -q -e node -e .*\\.spec\\.ts -e example\\.ts && fix-esm-import-path src",
     "test-exec": "yarn clean-build && node ./lib/node/fabler-cli.js ./game.z3"
   },
   "repository": {

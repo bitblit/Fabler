@@ -11,5 +11,3 @@ export * from './core/fabler-user-adapter.js';
 export * from './core/fabler.js';
 export * from './core/modifying-user-adapter.js';
 export * from './core/testing-fabler-user-adapter.js';
-export * from './node/fabler-cli.js';
-export * from './node/node-cli-fabler-user-adapter.js';
