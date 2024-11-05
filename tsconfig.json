@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "lib",
+    "outDir": "tmp",
     "rootDir": "src",
     "stripInternal": true,
     "declaration": true,
     "importHelpers": true,
-    "module": "esnext",
+    "module": "NodeNext", // Update this line
     "noEmitHelpers": true,
     "target": "esnext",
     "strict": true,
@@ -29,6 +29,7 @@
     "skipLibCheck": true,
     "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true,
+	//"moduleResolution": "nodenext",
     "paths": {
       "@bitblit/ratchet-*": ["modules/"]
     }

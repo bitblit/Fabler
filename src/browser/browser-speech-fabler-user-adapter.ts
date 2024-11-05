@@ -56,10 +56,10 @@ export class BrowserSpeechFablerUserAdapter implements FablerUserAdapter {
       console.log(`Confidence: ${event.results[0][0].confidence}`);
     };
     this.recognition.onerror = (event) => {
-      console.log('Error:' + event);
+      console.log('Error:' + event, event);
     };
     this.recognition.onnomatch = (event) => {
-      console.log('No Match:' + event);
+      console.log('No Match:' + event, event);
     };
   }
 
@@ -78,6 +78,7 @@ export class BrowserSpeechFablerUserAdapter implements FablerUserAdapter {
     this.recognition.stop();
     this.speakers.push(out);
     out.onend = (evt) => {
+      console.log('got onend from output');
       this.speakers.splice(this.speakers.indexOf(out), 1);
       if (this.speakers.length === 0) {
         console.log('Listening');
@@ -86,6 +87,10 @@ export class BrowserSpeechFablerUserAdapter implements FablerUserAdapter {
         console.log('Not listening, still ' + this.speakers.length);
       }
     };
+    out.onerror = (evt) => {
+      console.error('Speech synth error : '+evt, evt);
+    }
+    console.log('Pushing '+text.length+' chars to synth');
     synth.speak(out);
   }
 
